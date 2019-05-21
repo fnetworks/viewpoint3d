@@ -42,6 +42,47 @@
 			main {
 				grid-area: content;
 			}
+			#sidebar-tools {
+				width: 100%;
+			}
+			.toolbar {
+				display: flex;
+				background-color: #f1f1f1;
+			}
+			.toolbar-tool {
+				padding: 5px;
+				min-width: 50px;
+				text-align: center;
+				line-height: 40px;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				cursor: pointer;
+				transition: background-color 100ms ease-in-out;
+			}
+			.toolbar-tool:hover {
+				background-color: #dddddd;
+			}
+			.toolbar-tool:active {
+				background-color: #aaaaaa;
+			}
+			.object-list {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+			}
+			.object {
+				padding: 15px;
+			}
+			.object:hover {
+				background-color: #fafafa;
+			}
+			.object.selected {
+				background-color: #c5c8e7;
+			}
 		</style>
 	</head>
 	<body>
@@ -50,12 +91,26 @@
 				<h1>3D Visualizer</h1>
 			</header>
 			<nav>
+				<div id="sidebar-tools" class="toolbar">
+					<div class="toolbar-tool">ADD</div>
+					<div class="toolbar-tool">DEL</div>
+				</div>
+				<ul class="object-list">
+					<li class="object"><span class="object-type">VEC</span> (10|10|10)</li>
+				</ul>
 			</nav>
 			<main>
 				<div id="graphContainer"></div>
 			</main>
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.min.js" integrity="sha256-wEYWZyN8ZS6ht2AUoHFTEx8C+n5EdQFZ/aTqfjBNRK0=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 		<script src="bundle.js"></script>
+		<script>
+			$('.object').on("click", function(e) {
+				$('.object').removeClass('selected');
+				$(this).addClass('selected');
+			});
+		</script>
 	</body>
 </html>
