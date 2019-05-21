@@ -1,10 +1,11 @@
 const graphContainer = document.getElementById("graphContainer");
+const heightCorr = 4;
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, graphContainer.scrollWidth / graphContainer.scrollHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, graphContainer.scrollWidth / (graphContainer.scrollHeight - heightCorr), 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(graphContainer.scrollWidth, graphContainer.scrollHeight);
+renderer.setSize(graphContainer.scrollWidth, graphContainer.scrollHeight - heightCorr);
 graphContainer.appendChild(renderer.domElement);
 
 function createCoordinateSystem(size) {
@@ -84,8 +85,8 @@ renderer.domElement.addEventListener("wheel", wheel, false);
 
 function updateSize() {
 	graphContainer.removeChild(renderer.domElement);
-	renderer.setSize(graphContainer.scrollWidth, graphContainer.scrollHeight);
-	camera.aspect = graphContainer.scrollWidth / graphContainer.scrollHeight;
+	renderer.setSize(graphContainer.scrollWidth, graphContainer.scrollHeight - heightCorr);
+	camera.aspect = graphContainer.scrollWidth / (graphContainer.scrollHeight - heightCorr);
 	camera.updateProjectionMatrix();
 	graphContainer.appendChild(renderer.domElement);
 }
