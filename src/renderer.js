@@ -1,4 +1,4 @@
-import THREE from 'three.js';
+import * as THREE from 'three';
 
 const graphContainer = document.getElementById("graphContainer");
 const heightCorr = 4;

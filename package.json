@@ -5,12 +5,12 @@
   "main": "renderer.js",
   "scripts": {
     "build": "webpack --mode=production",
-	"start": "webpack-dev-server --mode=development --open"
+    "start": "webpack-dev-server --mode=development --open"
   },
   "author": "fnetworks",
   "repository": {
-  	"type": "git",
-	"url": "https://github.com/fnetworks/viewpoint3d.git"
+    "type": "git",
+    "url": "https://github.com/fnetworks/viewpoint3d.git"
   },
   "license": "MIT",
   "private": true,
@@ -23,6 +23,6 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "three.js": "^0.77.1"
+    "three": "^0.117.1"
   }
 }
