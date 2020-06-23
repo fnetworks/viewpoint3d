@@ -8,7 +8,11 @@
 	"start": "webpack-dev-server --mode=development --open"
   },
   "author": "fnetworks",
-  "license": "ISC",
+  "repository": {
+  	"type": "git",
+	"url": "https://github.com/fnetworks/viewpoint3d.git"
+  },
+  "license": "MIT",
   "private": true,
   "devDependencies": {
     "concurrently": "^5.2.0",
