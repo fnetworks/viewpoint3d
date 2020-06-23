@@ -1,3 +1,5 @@
+import THREE from 'three.js';
+
 const graphContainer = document.getElementById("graphContainer");
 const heightCorr = 4;
 
@@ -6,6 +8,7 @@ const camera = new THREE.PerspectiveCamera(75, graphContainer.scrollWidth / (gra
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(graphContainer.scrollWidth, graphContainer.scrollHeight - heightCorr);
+renderer.setClearColor(0xffffff, 1);
 graphContainer.appendChild(renderer.domElement);
 
 function createCoordinateSystem(size) {
@@ -51,7 +54,6 @@ pt1.position.z = 10;
 scene.add(pt1);
 
 camera.position.z = 50;
-scene.background = new THREE.Color(0xffffff);
 
 let mousePressed = false;
 
